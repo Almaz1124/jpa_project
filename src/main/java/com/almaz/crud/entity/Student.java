@@ -13,16 +13,16 @@ public class Student {
     @Column(name = "id")//если назв-я в таблице совп-т, то это аннотация не обяз-на, но лучше
     private Long id;
 
-    @Column(name = "first_name", unique = true)//unique нужен при авто создании таблицы
+    @Column(name = "first_name", unique = true)
     private String name;
 
-    @Column(name = "surname", nullable = false)//чтоб имя не было null, jpa не пропустит
+    @Column(name = "surname", nullable = false)
     private String surname;
 
     @Column(name = "avg_grade", nullable = false)
     private Double avgGrade;
 
-    @Transient//поле игнорируется при совершении операции
+    @Transient
     private LocalDateTime createDate;
 
     public LocalDateTime getCreateDate() {
