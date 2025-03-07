@@ -26,8 +26,9 @@ public class Student {
     @JoinColumn(name = "passport_id")
     private Passport passport;
 
-    @Column(name = "university_id")
-    private Long universityId;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "university_id")
+    private University university;
 
     public Student() {
     }
@@ -78,12 +79,12 @@ public class Student {
         this.passport = passport;
     }
 
-    public Long getUniversityId() {
-        return universityId;
+    public University getUniversity() {
+        return university;
     }
 
-    public void setUniversityId(Long universityId) {
-        this.universityId = universityId;
+    public void setUniversity(University university) {
+        this.university = university;
     }
 
     @Override
@@ -93,7 +94,6 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
-                ", universityId=" + universityId +
                 '}';
     }
 }
